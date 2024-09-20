@@ -1,0 +1,108 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.17);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  /* fonte da logo */
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #000000;
+}
+
+.logo img {
+  width: 35px;
+  height: 35px;
+  filter: grayscale(100%);
+}
+
+.logo h1 span {
+  font-weight: 700;
+  color: #6495ed;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2px;
+}
+
+h1 {
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.links {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.links li {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  height: 30px;
+  width: 130px;
+  border: black solid 1px;
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+.icone img {
+  width: 18px;
+  height: 18px;
+}
+
+.lable {
+  line-height: 20px;
+  font-size: 0.7rem;
+  color: black;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background: #6494ed25;
+  cursor: crosshair;
+}
+
+.gitButton {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  border: black solid 1px;
+  border-radius: 20px;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+}
+
+.gitButton img {
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+}
