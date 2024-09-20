@@ -1,7 +1,7 @@
-import styles from "./header.module.css";
+import styles from "./navbar.module.css";
 import logo from "../../assets/icon.png"
 
-export const Header = () => {
+export const Navbar = () => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>

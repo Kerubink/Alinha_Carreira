@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import './App.css'
-import { Header } from './components/Header/header'
+import "./App.css";
+import { Navbar } from "./components/navbar/navbar";
+import { About } from "./components/Sections/About/about";
 
 function App() {
   return (
     <>
-      <Header />
-      <h1>ola mundo</h1>
+      <div className="app">
+        <Navbar />
+        <About />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

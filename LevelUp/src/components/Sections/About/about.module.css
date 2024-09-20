@@ -1,0 +1,14 @@
+.about {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.aboutContent {
+  flex-grow: 1;
+  background-color: aqua;
+  border: black solid 1px;
+  border-radius: 20px;
+  padding: 1rem;
+}
