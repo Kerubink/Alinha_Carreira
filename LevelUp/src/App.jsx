@@ -1,6 +1,7 @@
 import "./App.css";
 import { Navbar } from "./components/navbar/navbar";
 import { About } from "./components/Sections/About/about";
+import { DailyChallenges } from "./components/Sections/DailyChallenges/dailyChallenges";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
         <Navbar />
         <About />
       </div>
+      <DailyChallenges />
+
     </>
   );
 }

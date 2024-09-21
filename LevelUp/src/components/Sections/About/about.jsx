@@ -1,17 +1,13 @@
 import stytes from "./about.module.css";
-
+import lua from "../../../assets/lua.svg";
+import lua2 from "../../../assets/lua2.png"
+ 
 export const About = () => {
   return (
     <section className={stytes.about}>
-        <div className={stytes.aboutContent}>
-          <h2>Conheça o LevelUp</h2>
-          <p>
-            LevelUp é um jogo de estratégia online onde os jogadores se enfrentam
-            contra outros jogadores para conquistar e expandir o seu território.
-            Utilize habilidades, itens, e recursos para vencer seus adversários e
-            expandir seu jogo.
-          </p>
-        </div>
+      <div className={stytes.aboutContent}>
+        <h1>Desafie-se, evolua e alcance novos níveis com o LevelUp.</h1>
+      </div>
     </section>
   );
 };

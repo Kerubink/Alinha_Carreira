@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .about {
-  flex-grow: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
   margin: 1rem;
@@ -7,8 +9,40 @@
 
 .aboutContent {
   flex-grow: 1;
-  background-color: aqua;
+  background-color: rgba(8, 161, 161, 0);
   border: black solid 1px;
   border-radius: 20px;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  position: relative; 
+}
+
+.aboutContent h1 {
+  color: rgb(0, 0, 0);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  max-width: 700px;
+  text-align: center;
+
+  
+  font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.aboutContent img {
+    width: 200%;
+    height: 300px;
+    position: absolute;
+    bottom: 0;
+    object-fit: cover;
+    object-position: 75% 10%;
 }

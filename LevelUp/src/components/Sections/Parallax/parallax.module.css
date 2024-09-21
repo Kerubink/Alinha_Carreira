@@ -1,0 +1,68 @@
+.parallaxContainer {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  perspective: 1px;
+}
+
+.parallaxLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  transition: transform 0.5s ease-out;
+}
+
+.layer1 {
+  background-image: url("../../../assets/animation/parallax/7.png");
+  z-index: 1;
+}
+
+.layer2 {
+  background-image: url("../../../assets/animation/parallax/6.png");
+  z-index: 2;
+}
+
+.layer3 {
+  background-image: url("../../../assets/animation/parallax/5.png");
+  z-index: 3;
+}
+
+.layer4 {
+  background-image: url("../../../assets/animation/parallax/4.png");
+  z-index: 4;
+}
+
+.layer5 {
+  background-image: url("../../../assets/animation/parallax/3.png");
+  z-index: 5;
+}
+
+.layer6 {
+  background-image: url("../../../assets/animation/parallax/2.png");
+  z-index: 6;
+}
+
+.layer7 {
+  background-image: url("../../../assets/animation/parallax/1.png");
+  z-index: 7;
+}
+
+
+.content {
+    position: relative;
+    padding: 50px;
+    text-align: center;
+    background-color: rgb(104, 0, 0); /* Fundo semitransparente */
+    color: white;
+    font-size: 24px;
+    transform: translateY(0);
+    z-index: 8;
+    height: 100%; /* Alterado para auto */
+  }
+  

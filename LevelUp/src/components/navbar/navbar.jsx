@@ -30,7 +30,7 @@ export const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="/about">
+            <a href="#dailyChallenges">
               <button className={styles.button}>
                 <div className={styles.icone}>
                   <img
