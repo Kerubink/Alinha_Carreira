@@ -1,3 +1,8 @@
+p {
+    text-align: center;
+    font-size: 15px;
+}
+
 .dailyChallenges {
     display: flex;
     flex-direction: column;
@@ -11,14 +16,92 @@
     box-shadow: 0.4rem 0.4rem #05060f;
     border-radius: 20px;
     margin-bottom: 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     width: 80%;
     height: 80%;
     display: flex;
     flex-direction: column;
 }
 
-.challengesContainer .challengesContainerHeader {
+.challengesContainerHeader {
+    height: 10%;
+    border-bottom: 0.5vmin solid #05060f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.challengesContainerBody {
+    flex-grow: 1;
+    display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+    overflow: hidden;
+    overflow-y: auto; /* Adiciona scroll vertical quando o conteúdo exceder */
+
+}
+
+.challenges {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.challenge {
+    flex-grow: 1;  /* Faz os itens ocuparem o espaço disponível */
+    flex-basis: calc(33.333% - 20px);  /* Cada item ocupa 1/3 do espaço com uma margem */
+    margin: 10px;  /* Espaçamento entre os itens */
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+.challenge:hover {
+    background-color: #e7e7e7;
+    cursor: pointer;
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+    .challenge {
+        flex-basis: calc(50% - 20px); /* Cada item ocupa 50% do espaço disponível */
+    }
+}
+
+@media (max-width: 480px) {
+    .challenge {
+        flex-basis: calc(100% - 20px); /* Cada item ocupa 100% do espaço disponível */
+    }
+}
+
+.challenge img {
+    width: 50px;
+    height: 50px;
+    filter: grayscale(100%);
+}
+
+.challengesInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0.5vmin solid #05060f;
+    box-shadow: 0.4rem 0.4rem #05060f;
+    border-radius: 20px;
+    width: 65%;
+    background-color: #fff;
+    height: 60%;
+    position: absolute;
+    bottom: -98%;
+    left: 30%;
+}
+
+.challengesInfoHeader {
     width: 100%;
     height: 10%;
     border-bottom: 0.5vmin solid #05060f;
@@ -27,28 +110,12 @@
     align-items: center;
 }
 
-.challengesContainer .challengesContainerBody {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background-color: aqua;
-}
-
-.challengesInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border: 0.5vmin solid #05060f;
-    box-shadow: 0.4rem 0.4rem #05060f;
-    border-radius: 20px;
-    background-color: lightblue;
-    width: 65%;
-    height: 60%;
-    position: absolute;
-    bottom: -98%;
-    left: 30%;
-    z-index: -1;
+.challengesInfoHeader button {
+    background-color: #05060f;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
 }
