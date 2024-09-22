@@ -1,0 +1,23 @@
+.scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: none; /* Inicialmente escondido */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    transition: opacity 0.3s;
+  }
+  
+  .scrollToTop.visible {
+    display: flex; /* Mostra o botão quando visível */
+    opacity: 1; /* Faz com que o botão apareça gradualmente */
+  }
+  

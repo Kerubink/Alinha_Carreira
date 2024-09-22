@@ -43,7 +43,7 @@ export const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="/contact">
+            <a href="#weeklyChallenges">
               <button className={styles.button}>
                 <div className={styles.icone}>
                   <img
@@ -56,7 +56,7 @@ export const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="/blog">
+            <a href="#comments">
               <button className={styles.button}>
                 <div className={styles.icone}>
                   <img
