@@ -1,9 +1,23 @@
+li {
+  list-style-type: none;
+}
+
+strong {
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  background-color: #000;
+  color: #00ff00;
+  counter-reset: terminal-counter;
+}
+
 .tabs {
   width: 90%;
-  height: 90%;
+  height: 80%;
   border: #000 solid 0.5vmin;
   display: flex;
   flex-direction: column;
+  font-family: "Courier New", Courier, monospace !important;
 }
 
 .tabsContainer {
@@ -30,20 +44,238 @@
 }
 
 .tabButton.active {
-    background-color: #292929;
-
-  
+  background-color: #292929;
 }
 
 .tabPanel {
-  display: none; /* Escondido por padrão */
+  display: none;
   padding: 10px;
   background-color: #292929;
-
+  overflow: hidden;
+  overflow-y: auto;
   flex-grow: 1;
+  position: relative;
 }
 
 .tabPanel.active {
-  display: block; 
-  /* Mostra o painel ativo */
+  display: block;
+}
+
+.terminalContent {
+  border: 1px solid #292929;
+  margin-bottom: 10px;
+  height: 60%;
+  width: 60%;
+  background-color: #000;
+  color: #ffffff;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.terminalContent2 {
+  border: 1px solid #292929;
+  margin-bottom: 10px;
+  height: 35%;
+  width: 60%;
+  background-color: #000;
+  font-family: Menlo, Consolas, monospace;
+  color: #ffffff;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+}
+
+.terminalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15%;
+  width: 100%;
+  background-color: #181818;
+  color: #ffffff;
+}
+
+.terminalHeader h4 {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.terminalHeader .icone {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+  width: 1.4rem;
+  height: 100%;
+  border: #999 solid 1px 0 1px 0;
+}
+
+.terminal_body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+.terminal_body::-webkit-scrollbar,
+.tabPanel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal_body::-webkit-scrollbar-track,
+.tabPanel::-webkit-scrollbar {
+  background-color: #000000;
+}
+
+.terminal_body::-webkit-scrollbar-thumb,
+.tabPanel::-webkit-scrollbar {
+  background-color: #666;
+  border-radius: 10px;
+  border: 2px solid #333;
+}
+
+.terminal_body::-webkit-scrollbar-thumb:hover,
+.tabPanel::-webkit-scrollbar {
+  background-color: #999;
+}
+
+.terminal_prompt {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+.terminal_prompt span {
+  margin-left: 4px;
+}
+
+.terminal_user {
+  color: #1eff8e;
+}
+
+.terminal_location {
+  color: #4878c0;
+}
+
+.terminal_bling {
+  color: #dddddd;
+}
+
+.terminal_cursor {
+  display: block;
+  height: 14px;
+  width: 5px;
+  margin-left: 10px;
+  animation: curbl 1200ms linear infinite;
+}
+
+@keyframes curbl {
+  0% {
+    background: #ffffff;
+  }
+
+  49% {
+    background: #ffffff;
+  }
+
+  60% {
+    background: transparent;
+  }
+
+  99% {
+    background: transparent;
+  }
+
+  100% {
+    background: #ffffff;
+  }
+}
+
+.notebook {
+  background-color: #000000; /* Fundo cor de papel */
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 90%;
+  margin: 20px auto;
+  line-height: 1.6;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.notebook p {
+    text-align: start;
+}
+
+.notebook .efeito {
+    background-color: #11005a81;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8em;
+}
+
+pre {
+  background-color: #0e0e0e;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  color: #b500bb;
+}
+
+.challengeHelp {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 80%;
+    background-color: #000;
+}
+
+.challengeHelpHeader {
+    height: 10%;
+    border-bottom: 0.5vmin solid #05060f;
+    display: flex;
+    align-items: center;
+    background-color: #181818;
+
+}
+
+.challengeHelpHeader h4 {
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+}
+
+.challengeHelpBody {
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.challengeHelp p {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: white;
+    text-align: start;
 }

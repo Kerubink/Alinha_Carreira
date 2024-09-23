@@ -3,6 +3,7 @@ import styles from "./dailyChallenges.module.css";
 import iconeArquivo from "../../../assets/icons/arquivoIcon.png";
 import { ChallengesInfo } from "../../Contents/ChallengesInfo/challengesInfo.jsx";
 import { ChallengesSolution } from "../../Contents/ChallengesSolution/challengesSolution.jsx";
+import { Tools } from "../../Tool/tools.jsx";
 
 export const DailyChallenges = () => {
   const [challenges, setChallenges] = useState([]);
@@ -12,7 +13,7 @@ export const DailyChallenges = () => {
   useEffect(() => {
     const fetchChallenges = async () => {
       try {
-        const response = await fetch("http://localhost:3000/challenges");
+        const response = await fetch("https://gameficacao-api-2.onrender.com/challenges");
         const data = await response.json();
         setChallenges(data);
       } catch (error) {

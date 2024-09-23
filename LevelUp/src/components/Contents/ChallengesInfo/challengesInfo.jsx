@@ -47,7 +47,7 @@ export const ChallengesInfo = ({ selectedChallenge, handleCloseInfo, handleShowS
         onMouseDown={handleMouseDown}
       >
         <h4>Informações do desafio</h4>
-        <button onClick={handleCloseInfo}>Fechar</button>
+        <button onClick={handleCloseInfo}>X</button>
       </div>
       <div className={styles.challengesInfoBody}>
         <p>Título: {selectedChallenge.title}</p>
