@@ -1,121 +1,180 @@
 p {
-    text-align: center;
-    font-size: 15px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+  cursor: pointer;
+}
+
+.circle {
+  padding: 0 4px;
+}
+
+.box {
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+}
+.red {
+  background-color: #ff605c;
+}
+
+.yellow {
+  background-color: #ffbd44;
+}
+
+.green {
+  background-color: #00ca4e;
 }
 
 .dailyChallenges {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
 }
 
 .challengesContainer {
-    border: 0.5vmin solid #05060f;
-    box-shadow: 0.4rem 0.4rem #05060f;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    width: 80%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
+  border: 0.5vmin solid #05060f;
+  box-shadow: 0.4rem 0.4rem #05060f;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .challengesContainerHeader {
-    height: 10%;
-    border-bottom: 0.5vmin solid #05060f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 10%;
+  border-bottom: 0.5vmin solid #05060f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .challengesContainerBody {
-    flex-grow: 1;
-    display: flex;
-    padding: 1rem;
-    flex-wrap: wrap;
-    overflow: hidden;
-    overflow-y: auto; /* Adiciona scroll vertical quando o conteúdo exceder */
-
+  flex-grow: 1;
+  display: flex;
+  padding: 1rem;
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow-y: auto; /* Adiciona scroll vertical quando o conteúdo exceder */
 }
 
 .challenges {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
 }
 
 .challenge {
-    flex-grow: 1;  /* Faz os itens ocuparem o espaço disponível */
-    flex-basis: calc(33.333% - 20px);  /* Cada item ocupa 1/3 do espaço com uma margem */
-    margin: 10px;  /* Espaçamento entre os itens */
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-
+  flex-grow: 1; /* Faz os itens ocuparem o espaço disponível */
+  flex-basis: calc(
+    33.333% - 20px
+  ); /* Cada item ocupa 1/3 do espaço com uma margem */
+  margin: 10px; /* Espaçamento entre os itens */
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .challenge:hover {
-    background-color: #e7e7e7;
-    cursor: pointer;
+  background-color: #e7e7e7;
+  cursor: pointer;
 }
 
-/* Media Query para telas menores */
 @media (max-width: 768px) {
-    .challenge {
-        flex-basis: calc(50% - 20px); /* Cada item ocupa 50% do espaço disponível */
-    }
+  .challenge {
+    flex-basis: calc(50% - 20px);
+  }
 }
 
 @media (max-width: 480px) {
-    .challenge {
-        flex-basis: calc(100% - 20px); /* Cada item ocupa 100% do espaço disponível */
-    }
+  .challenge {
+    flex-basis: calc(100% - 20px);
+  }
 }
 
 .challenge img {
-    width: 50px;
-    height: 50px;
-    filter: grayscale(100%);
+  width: 50px;
+  height: 50px;
+  filter: grayscale(100%);
 }
 
 .challengesInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 0.5vmin solid #05060f;
-    box-shadow: 0.4rem 0.4rem #05060f;
-    border-radius: 20px;
-    width: 65%;
-    background-color: #fff;
-    height: 60%;
-    position: absolute;
-    bottom: -98%;
-    left: 30%;
+  user-select: none; /* Impede a seleção de texto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.5vmin solid #05060f;
+  box-shadow: 0.4rem 0.4rem #05060f;
+  border-radius: 20px;
+  width: 65%;
+  background-color: #fff;
+  height: 60%;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Centraliza a div em relação ao seu próprio tamanho */
+  transition: transform 0.1s, opacity 0.2s; /* Suaviza a transição */
+  opacity: 0; /* Começa invisível */
+  pointer-events: none; /* Não pode ser clicado quando invisível */
+}
+
+.challengesInfo.visible {
+  opacity: 1; /* Torna visível quando a classe 'visible' é adicionada */
+  pointer-events: auto; /* Permite interação quando visível */
 }
 
 .challengesInfoHeader {
-    width: 100%;
-    height: 10%;
-    border-bottom: 0.5vmin solid #05060f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 10%;
+  border-bottom: 0.5vmin solid #05060f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: grab; /* Muda o cursor para indicar que é arrastável */
+}
+
+.challengesInfoHeader:active {
+  cursor: grabbing; /* Muda o cursor quando arrastando */
+}
+
+.challengesInfoHeader h4 {
+  flex: 1;
+  text-align: center;
 }
 
 .challengesInfoHeader button {
-    background-color: #05060f;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    position: relative;
+  background-color: #000000dc;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+}
+
+.challengesInfoHeader button span {
+  font-size: 20px;
 }
