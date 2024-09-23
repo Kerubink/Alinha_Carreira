@@ -70,7 +70,7 @@ export const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <a href="/github">
+      <a href="https://github.com/Kerubink/Gameficacao">
         <button className={styles.gitButton}>
           <img
             src="https://cdn-icons-png.flaticon.com/512/3291/3291695.png"
