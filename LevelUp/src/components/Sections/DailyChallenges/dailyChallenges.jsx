@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./dailyChallenges.module.css";
 import iconeArquivo from "../../../assets/icons/arquivoIcon.png";
-import { ChallengesInfo } from "../../ChallengesInfo/challengesInfo";
-import { ChallengesSolution } from "../../ChallengesSolution/challengesSolution";
+import { ChallengesInfo } from "../../Contents/ChallengesInfo/challengesInfo.jsx";
+import { ChallengesSolution } from "../../Contents/ChallengesSolution/challengesSolution.jsx";
 
 export const DailyChallenges = () => {
   const [challenges, setChallenges] = useState([]);
