@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./dailyChallenges.module.css";
 import iconeArquivo from "../../../assets/icons/arquivoIcon.png";
+import { ChallengesInfo } from "../../ChallengesInfo/challengesInfo";
+import { ChallengesSolution } from "../../ChallengesSolution/challengesSolution";
 
 export const DailyChallenges = () => {
   const [challenges, setChallenges] = useState([]);
   const [selectedChallenge, setSelectedChallenge] = useState(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const isDragging = useRef(false);
-  const ref = useRef(null);
-  const initialMousePosition = useRef({ x: 0, y: 0 });
+  const [showSolution, setShowSolution] = useState(false);
 
   useEffect(() => {
     const fetchChallenges = async () => {
@@ -26,70 +25,16 @@ export const DailyChallenges = () => {
 
   const handleChallengeClick = (challenge) => {
     setSelectedChallenge(challenge);
-    setPosition({ x: 0, y: 0 });
+    setShowSolution(false);
   };
 
   const handleCloseInfo = () => {
     setSelectedChallenge(null);
+    setShowSolution(false);
   };
 
-  const handleMouseDown = (e) => {
-    e.preventDefault();
-    isDragging.current = true;
-
-    const rect = ref.current.getBoundingClientRect();
-    initialMousePosition.current = { x: e.clientX, y: e.clientY };
-
-    const handleMouseMove = (e) => {
-      if (isDragging.current) {
-        const dx = e.clientX - initialMousePosition.current.x;
-        const dy = e.clientY - initialMousePosition.current.y;
-        setPosition((prevPosition) => ({
-          x: prevPosition.x + dx,
-          y: prevPosition.y + dy,
-        }));
-        initialMousePosition.current = { x: e.clientX, y: e.clientY };
-      }
-    };
-
-    const handleMouseUp = () => {
-      isDragging.current = false;
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-  };
-
-  const handleTouchStart = (e) => {
-    e.preventDefault();
-    isDragging.current = true;
-
-    const touch = e.touches[0];
-    initialMousePosition.current = { x: touch.clientX, y: touch.clientY };
-
-    const handleTouchMove = (e) => {
-      if (isDragging.current) {
-        const touch = e.touches[0];
-        const dx = touch.clientX - initialMousePosition.current.x;
-        const dy = touch.clientY - initialMousePosition.current.y;
-        setPosition((prevPosition) => ({
-          x: prevPosition.x + dx,
-          y: prevPosition.y + dy,
-        }));
-        initialMousePosition.current = { x: touch.clientX, y: touch.clientY };
-      }
-    };
-
-    const handleTouchEnd = () => {
-      isDragging.current = false;
-      document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleTouchEnd);
-    };
-
-    document.addEventListener("touchmove", handleTouchMove);
-    document.addEventListener("touchend", handleTouchEnd);
+  const handleShowSolution = () => {
+    setShowSolution((prev) => !prev); 
   };
 
   return (
@@ -121,46 +66,21 @@ export const DailyChallenges = () => {
             )}
           </div>
         </div>
-        <div
-          className={`${styles.challengesInfo} ${
-            selectedChallenge ? styles.visible : ""
-          }`}
-          style={{
-            zIndex: selectedChallenge ? 2 : -1,
-            transform: `translate(${position.x}px, ${position.y}px)`,
-            position: "absolute",
-            pointerEvents: selectedChallenge ? "auto" : "none",
-          }}
-          ref={ref}
-        >
-          <div
-            className={styles.challengesInfoHeader}
-            onMouseDown={handleMouseDown}
-            onTouchStart={handleTouchStart}
-          >
-            <h4>Informações do desafio</h4>
-            <div className={styles.tools}>
-              <div onClick={handleCloseInfo} className={styles.circle}>
-                <span className={`${styles.red} ${styles.box}`}></span>
-              </div>
-              <div className={styles.circle}>
-                <span className={`${styles.yellow} ${styles.box}`}></span>
-              </div>
-              <div className={styles.circle}>
-                <span className={`${styles.green} ${styles.box}`}></span>
-              </div>
-            </div>
-          </div>
-          {selectedChallenge && (
-            <div className={styles.challengesInfoBody}>
-              <p>Título: {selectedChallenge.title}</p>
-              <p>Descrição: {selectedChallenge.description}</p>
-              <p>Dificuldade: {selectedChallenge.difficulty}</p>
-              <p>Pontuação: {selectedChallenge.score}</p>
-            </div>
-          )}
-          <button>Mostrar solução</button>
-        </div>
+
+        {selectedChallenge && (
+          <ChallengesInfo
+            selectedChallenge={selectedChallenge}
+            handleCloseInfo={handleCloseInfo}
+            handleShowSolution={handleShowSolution} 
+          />
+        )}
+
+        {selectedChallenge && showSolution && (
+          <ChallengesSolution
+            selectedChallenge={selectedChallenge}
+            handleCloseSolution={handleCloseInfo} 
+          />
+        )}
       </div>
     </section>
   );

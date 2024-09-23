@@ -1,0 +1,61 @@
+.challengesInfo {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0.5vmin solid #05060f;
+    box-shadow: 0.4rem 0.4rem #05060f;
+    border-radius: 20px;
+    width: 65%;
+    background-color: #fff;
+    height: 60%;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(
+      -50%,
+      -50%
+    ); 
+    transition: transform 0.1s, opacity 0.2s; 
+    opacity: 0; 
+    pointer-events: none; 
+  }
+  
+  .challengesInfo.visible {
+    opacity: 1; 
+    pointer-events: auto; 
+  }
+  
+  .challengesInfoHeader {
+    width: 100%;
+    height: 10%;
+    border-bottom: 0.5vmin solid #05060f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: grab; 
+  }
+  
+  .challengesInfoHeader:active {
+    cursor: grabbing;
+  }
+  
+  .challengesInfoHeader h4 {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .challengesInfoHeader button {
+    background-color: #000000dc;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+  }
+  
+  .challengesInfoHeader button span {
+    font-size: 20px;
+  }
+  
